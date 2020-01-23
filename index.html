@@ -23,6 +23,11 @@
     <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    
+    <!-- Anonymous feedback -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -65,8 +70,30 @@
             </span>
             <h2>Software Developer</h2>
             <a href="files/rhuts01-05-2020_redacted.pdf" class="btn-rounded-white" target="_blank">Resume</a>
-            <!-- <br><br>
-            <a href="files/Roman_Huts.vcf" class="btn-rounded-white" target="_blank">Contact Card</a> -->
+
+            <!-- Anonymous Feedback -->
+            <div class="container">
+                <div class="nb-form">
+                <p class="title">Anonymous Feedback!</p>
+                <img src="./images/anonymous_icon_round.png" alt="" class="user-icon">
+                <p class="message">*Fun and experimental*</p>
+
+                <form method="POST" action="https://formspree.io/roman.h1234@gmail.com">
+                    <input type="hidden" name="_subject" value="Contact request from personal website" />
+                    <input type="email" name="_replyto" id="_replyto" placeholder="a@b.com (anonymous)" style=" visibility: hidden;"/>
+                    <textarea name="message" placeholder="Your message" required></textarea>
+                    <button type="submit">Send</button>
+                    <script type="text/javascript"> document.getElementById('_replyto').value = 'a@b.com'; </script>
+                </form>
+
+              </div>
+            </div>
+            <!-- End Anonymous feedback -->
+            
+            <!-- <br> -->
+            <br>
+            <a href="#contact" class="btn-rounded-white">Contact</a>
+            <!-- <a href="#contact" class="btn-rounded-white" target="_blank">Contact</a> -->
         </div>
         <!-- End #lead-content -->
 
@@ -344,7 +371,7 @@
     <!-- End #skills -->
 
     <div id="contact">
-        <h2>Get in Touch</h2>
+        <h2>Contact Me!</h2>
         <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=55a94rni9oi&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script>
         <div id="contact-form">
             <form method="POST" action="https://formspree.io/roman.h1234@gmail.com">
