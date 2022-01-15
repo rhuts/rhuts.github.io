@@ -5,3 +5,6 @@
 2. Run gulp with `npm run watch`
 
 3. Open `index.html`.
+
+#### Credits
+Template from RyanFitzgerald
