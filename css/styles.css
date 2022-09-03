@@ -174,3 +174,9 @@ a:visited {
     padding: 20%;
 }
 /* End buttons linking to other sites */
+
+/* Workaround for main section header overlapping with top panel */
+h1 {
+    padding-top: 15%;
+}
+/* End workaround for main section header overlapping with top panel */
