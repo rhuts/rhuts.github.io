@@ -167,3 +167,10 @@ a:visited {
   }
 
 /* End Customized links */
+
+/* Buttons linking to other sites */
+#mybtngroup {
+    box-sizing: border-box;
+    padding: 20%;
+}
+/* End buttons linking to other sites */
