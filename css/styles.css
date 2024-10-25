@@ -171,7 +171,7 @@
 /* Buttons linking to other sites */
 #mybtngroup {
     box-sizing: border-box;
-    padding: 20%;
+    padding: 10%;
 }
 #mybtngroup a:visited {
     color: white;

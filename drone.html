@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9SKRCDFP92"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9SKRCDFP92');
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-155293431-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-155293431-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Software, AI & Media</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <style>
+
+        /* Container to align Reels side by side */
+        .instagram-container {
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            gap: 16px; /* Space between each reel */
+            flex-wrap: wrap; /* Wraps if screen width is too small */
+        }
+
+        /* Instagram Reel style */
+        .instagram-media {
+            max-width: 2px; /* Adjust max width to make smaller */
+            width: 100%;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 66.67%; /* Set to 2/3 of the screen width */
+            padding-top: 37.5%; /* 16:9 Aspect Ratio (9/16 = 0.5625) */
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lightbox styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox img {
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Navigation buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        .nav-button.left {
+            left: 30px;
+        }
+
+        .nav-button.right {
+            right: 30px;
+        }
+
+    </style>
+    
+    <!-- Anonymous feedback -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+</head>
+
+<body>
+
+    <div id="experience" class="background-alt">
+        
+        <h2 class="heading">Portfolio</h2>
+
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe width="560" height="315" 
+                        src="https://www.youtube.com/embed/AAO_vIFf3oM" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <br>
+
+
+
+        <br>
+
+        <div class="gallery">
+            <img src="./images/DJI_0226.JPG" alt="Photo 1" onclick="openLightbox(0)">
+            <img src="./images/DJI_0236.jpg" alt="Photo 2" onclick="openLightbox(1)">
+            <img src="./images/DJI_0248.jpg" alt="Photo 3" onclick="openLightbox(2)">
+            <img src="./images/DJI_0256.jpg" alt="Photo 4" onclick="openLightbox(3)">
+            <!-- Add more images as needed -->
+        </div>
+    
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+            <span class="close" onclick="closeLightbox()">&times;</span>
+            <span class="nav-button left" onclick="prevImage(event)">&#10094;</span>
+            <img id="lightbox-image" src="" alt="">
+            <span class="nav-button right" onclick="nextImage(event)">&#10095;</span>
+        </div>
+    
+        <script>
+            const images = ["./images/DJI_0226.JPG", "./images/DJI_0236.jpg", "./images/DJI_0248.jpg", "./images/DJI_0256.jpg"]; // Add image paths here
+            let currentIndex = 0;
+    
+            // Open the lightbox with the selected image
+            function openLightbox(index) {
+                currentIndex = index;
+                document.getElementById("lightbox-image").src = images[currentIndex];
+                document.getElementById("lightbox").classList.add("show");
+            }
+    
+            // Close the lightbox
+            function closeLightbox(event) {
+                // Close only if the user clicks outside the image or on the close button
+                if (!event || event.target === document.getElementById("lightbox")) {
+                    document.getElementById("lightbox").classList.remove("show");
+                }
+            }
+    
+            // Show the previous image
+            function prevImage(event) {
+                event.stopPropagation(); // Prevent lightbox close when clicking nav button
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                document.getElementById("lightbox-image").src = images[currentIndex];
+            }
+    
+            // Show the next image
+            function nextImage(event) {
+                event.stopPropagation(); // Prevent lightbox close when clicking nav button
+                currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                document.getElementById("lightbox-image").src = images[currentIndex];
+            }
+    
+            // Keyboard navigation
+            document.addEventListener("keydown", function(event) {
+                if (document.getElementById("lightbox").classList.contains("show")) {
+                    if (event.key === "ArrowLeft") {
+                        prevImage(event);
+                    } else if (event.key === "ArrowRight") {
+                        nextImage(event);
+                    } else if (event.key === "Escape") {
+                        closeLightbox();
+                    }
+                }
+            });
+        </script>
+
+        <br>
+        <div class="instagram-container">
+
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAYuDdTxmrO/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); width: 10%; max-width: 100%;"></blockquote>
+            <script async src="https://www.instagram.com/embed.js"></script>
+
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DAjx8Jex0vV/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); width: 10%; max-width: 100%;"></blockquote>
+            <script async src="https://www.instagram.com/embed.js"></script>
+
+        </div>
+
+
+    </div>
+    <!-- End #experience -->
+
+
+    <div id="contact">
+        <h2>Contact Me!</h2>
+        <!-- TODO rhuts revert -->
+        <!-- <script type="text/javascript" src="//rf.revolvermaps.com/0/0/6.js?i=55a94rni9oi&amp;m=7&amp;c=e63100&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=90&amp;lx=-420&amp;ly=420&amp;hi=20&amp;he=7&amp;hc=a8ddff&amp;rs=80" async="async"></script> -->
+        <div id="contact-form">
+            <form method="POST" action="https://formspree.io/roman.h1234@gmail.com">
+                <input type="hidden" name="_subject" value="Contact request from personal website" />
+                <input type="email" name="_replyto" placeholder="Your email" required>
+                <textarea name="message" placeholder="Your message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        <!-- End #contact-form -->
+    </div>
+    <!-- End #contact -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 copyright">
+                    <p>
+                        Copyright &copy;2024 ROMAN HUTS
+                    </p>
+                </div>
+                <div class="col-sm-2 top">
+                    <span id="to-top">
+                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="col-sm-5 social">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/rhuts" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+                        </li>
+                        <!-- <li>
+                            <a href="https://stackoverflow.com/" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
+                        </li> -->
+                        <li>
+                            <a href="https://www.linkedin.com/in/romanh/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                        </li>
+                        <!-- <li>
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="https://plus.google.com/u/1/117003722128857761205" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/scripts.min.js"></script>
+</body>
+
+</html>
