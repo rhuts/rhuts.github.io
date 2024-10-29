@@ -9,12 +9,17 @@
 
 <url>
   <loc>https://romanhuts.com/</loc>
-  <lastmod>2020-01-11T07:25:22+00:00</lastmod>
+  <lastmod>2024-10-29T15:20:36+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://romanhuts.com/files/rhuts01-05-2020_redacted.pdf</loc>
-  <lastmod>2020-01-11T07:25:22+00:00</lastmod>
+  <loc>https://romanhuts.com/drone.html</loc>
+  <lastmod>2024-10-29T15:20:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://romanhuts.com/files/roman_huts_2024-04-04_redacted.pdf</loc>
+  <lastmod>2024-10-29T15:20:36+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
