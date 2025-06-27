@@ -1,0 +1,57 @@
+.clients-section {
+  .container {
+    position: relative;
+
+    .owl-carousel {
+      max-width: 85%;
+      margin: auto;
+
+      img {
+        max-width: 170px;
+      }
+
+      .owl-dots {
+        display: none;
+      }
+    }
+
+    .owl-nav {
+      width: 100%;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+
+      display: flex;
+      justify-content: space-between;
+
+      @media screen and (max-width: 499px) {
+        position: relative;
+        margin-top: 40px;
+        width: 100%;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .nav-container {
+        cursor: pointer;
+
+        background-color: var(--accent-clr);
+        border-radius: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+
+        &:nth-child(1) {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+  }
+}

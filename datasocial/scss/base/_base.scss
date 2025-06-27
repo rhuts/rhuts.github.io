@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-clr);
+  background-color: var(--primary-clr);
+}
+
+main {
+  overflow-x: hidden;
+}
+
+header,
+.footer,
+.main {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.diff-colors {
+  background-color: #f8f5ff;
+  color: #707070;
+}
+
+img {
+  user-select: none;
+}

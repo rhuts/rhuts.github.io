@@ -1,0 +1,46 @@
+.numbers-section {
+  .container {
+    background-color: var(--secondary-clr);
+    padding: 40px 60px;
+    border-radius: 100px;
+
+    .inner {
+      max-width: 800px;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      text-align: center;
+
+      @media screen and (max-width: 649px) {
+        flex-direction: column;
+        gap: 25px;
+
+        .bar {
+            height: 1.15px;
+            width: 50px;
+        }
+      }
+    }
+
+    .col {
+      .number {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .text {
+        font-size: 18px;
+      }
+    }
+
+    .bar {
+      height: 50px;
+      width: 1.15px;
+      background-color: var(--text-clr);
+    }
+  }
+}
