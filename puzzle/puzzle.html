@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Valentine ❤️</title>
+
+<style>
+
+/* ===== Animated Background ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ff4d6d, #ff99ac);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Glass Container ===== */
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+    border-radius: 20px;
+    margin: 20px;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Headings ===== */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+h2 {
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* ===== Puzzle Grid ===== */
+#puzzle {
+    width: 320px;
+    height: 320px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px; /* smaller gap */
+    margin: 20px auto;
+    padding: 6px; /* less padding */
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px; /* slightly less rounded */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* ===== Puzzle Tiles ===== */
+.tile {
+    background-size: 320px 320px;
+    border-radius: 6px; /* less rounded corners */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+.tile:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+.empty {
+    background: rgba(255,255,255,0.08);
+    cursor: default;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+}
+
+/* ===== Buttons ===== */
+button {
+    padding: 12px 28px;
+    margin: 12px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #ff4d6d, #ff758c);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* YES button glow */
+button:first-child {
+    background: linear-gradient(135deg, #ff1e56, #ff4d6d);
+    animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 10px #ff4d6d; }
+    50% { box-shadow: 0 0 25px #ff1e56; }
+    100% { box-shadow: 0 0 10px #ff4d6d; }
+}
+
+/* ===== Love Screen ===== */
+#loveScreen {
+    display: none;
+    flex-direction: column;
+    animation: fadeIn 1.5s ease;
+}
+
+/* ===== Rain Animation ===== */
+.rain {
+    position: fixed;
+    top: -50px;
+    font-size: 2.6rem; /* slightly larger */
+    opacity: 0.75; /* transparency */
+    filter: blur(0.5px); /* soft dreamy effect */
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+/* ===== Fireworks ===== */
+.firework {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes explode {
+    to {
+        transform: translate(var(--x), var(--y));
+        opacity: 0;
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 500px) {
+    #puzzle {
+        width: 260px;
+        height: 260px;
+    }
+
+    .tile {
+        background-size: 260px 260px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- PUZZLE SCREEN -->
+<div class="container" id="puzzleScreen">
+    <h1>Solve Our Puzzle ❤️</h1>
+    <!-- <p>Put the picture back together.</p> -->
+    <div id="puzzle"></div>
+</div>
+
+<!-- LOVE SCREEN -->
+<div class="container" id="loveScreen">
+    <h1>🌸 You are my favorite adventure 🏍️</h1>
+    <h2>Will you be my Valentine?</h2>
+    <div>
+        <button onclick="sayYes()">YES ❤️</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+</div>
+
+<script>
+const imageSrc = "img.jpg";
+const puzzle = document.getElementById("puzzle");
+
+let board = [];
+let emptyIndex = 8;
+
+// Initialize board
+function initBoard() {
+    board = [...Array(9).keys()];
+    shuffleBoard();
+    renderBoard();
+}
+
+function shuffleBoard() {
+    for (let i = 0; i < 5; i++) {
+        const neighbors = getMovableTiles();
+        const rand = neighbors[Math.floor(Math.random() * neighbors.length)];
+        [board[emptyIndex], board[rand]] = [board[rand], board[emptyIndex]];
+        emptyIndex = rand;
+    }
+}
+
+function renderBoard() {
+    puzzle.innerHTML = "";
+
+    board.forEach((value, index) => {
+        const tile = document.createElement("div");
+        tile.classList.add("tile");
+
+        if (value === 8) {
+            tile.classList.add("empty");
+            emptyIndex = index;
+        } else {
+            const x = (value % 3) * -100;
+            const y = Math.floor(value / 3) * -100;
+            tile.style.backgroundImage = `url(${imageSrc})`;
+            tile.style.backgroundPosition = `${x}px ${y}px`;
+            tile.addEventListener("click", () => moveTile(index));
+        }
+
+        puzzle.appendChild(tile);
+    });
+}
+
+function moveTile(index) {
+    if (getMovableTiles().includes(index)) {
+        [board[emptyIndex], board[index]] = [board[index], board[emptyIndex]];
+        emptyIndex = index;
+        renderBoard();
+
+        if (checkWin()) {
+            setTimeout(winGame, 500);
+        }
+    }
+}
+
+function getMovableTiles() {
+    const moves = [];
+    const row = Math.floor(emptyIndex / 3);
+    const col = emptyIndex % 3;
+
+    if (row > 0) moves.push(emptyIndex - 3);
+    if (row < 2) moves.push(emptyIndex + 3);
+    if (col > 0) moves.push(emptyIndex - 1);
+    if (col < 2) moves.push(emptyIndex + 1);
+
+    return moves;
+}
+
+function checkWin() {
+    for (let i = 0; i < 9; i++) {
+        if (board[i] !== i) return false;
+    }
+    return true;
+}
+
+function winGame() {
+    document.getElementById("puzzleScreen").style.display = "none";
+    document.getElementById("loveScreen").style.display = "flex";
+    startRain();
+}
+
+// 🌸🐱 Cute Rain
+function startRain() {
+    const emojis = [
+        "🌸", "🌷", "🌹", "🌺", "💐",
+        "🐱", "🐈", "😺", "😻",
+        "🌼", "🪷"
+    ];
+
+    setInterval(() => {
+        const rain = document.createElement("div");
+        rain.classList.add("rain");
+
+        rain.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+
+        // Random horizontal position
+        rain.style.left = Math.random() * 100 + "vw";
+
+        // Random fall speed
+        rain.style.animationDuration = (Math.random() * 3 + 2) + "s";
+
+        // Random size variation
+        rain.style.fontSize = (Math.random() * 1 + 2.2) + "rem";
+
+        // Random transparency variation
+        rain.style.opacity = (Math.random() * 0.4 + 0.5);
+
+        document.body.appendChild(rain);
+
+        setTimeout(() => rain.remove(), 5000);
+    }, 180);
+}
+
+// 🎆 Fireworks
+function sayYes() {
+    for (let i = 0; i < 60; i++) {
+        const fw = document.createElement("div");
+        fw.classList.add("firework");
+        fw.style.left = "50vw";
+        fw.style.top = "50vh";
+        fw.style.background = `hsl(${Math.random()*360},100%,50%)`;
+        fw.style.setProperty('--x', (Math.random()*400-200)+'px');
+        fw.style.setProperty('--y', (Math.random()*400-200)+'px');
+        document.body.appendChild(fw);
+        setTimeout(() => fw.remove(), 1000);
+    }
+}
+
+// 😏 Runaway No button
+const noBtn = document.getElementById("noBtn");
+
+const noTexts = [
+    "No 😢",
+    "*Delete all Hondas*",
+    "Suzuki is best bike🏆",
+    "Wrong button 🥺",
+    "That's haram ❌",
+    "Don't do this 😭",
+    "I'm shy 🙈",
+    "Please?? 🥹",
+    "You can't catch me 😜",
+    "Still no? 😤"
+];
+
+let noIndex = 0;
+
+noBtn.addEventListener("mouseover", () => {
+    // Move button
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 80 + "vw";
+    noBtn.style.top = Math.random() * 80 + "vh";
+
+    // Change text
+    noIndex = (noIndex + 1) % noTexts.length;
+    noBtn.innerText = noTexts[noIndex];
+});
+
+initBoard();
+</script>
+
+
+</body>
+</html>
+
