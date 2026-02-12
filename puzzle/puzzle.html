@@ -231,18 +231,27 @@ function shuffleBoard() {
 function renderBoard() {
     puzzle.innerHTML = "";
 
+    const puzzleSize = puzzle.clientWidth; // dynamic size
+    const tileSize = puzzleSize / 3;
+
     board.forEach((value, index) => {
         const tile = document.createElement("div");
         tile.classList.add("tile");
+
+        tile.style.width = tileSize + "px";
+        tile.style.height = tileSize + "px";
 
         if (value === 8) {
             tile.classList.add("empty");
             emptyIndex = index;
         } else {
-            const x = (value % 3) * -100;
-            const y = Math.floor(value / 3) * -100;
+            const x = (value % 3) * -tileSize;
+            const y = Math.floor(value / 3) * -tileSize;
+
             tile.style.backgroundImage = `url(${imageSrc})`;
+            tile.style.backgroundSize = puzzleSize + "px " + puzzleSize + "px";
             tile.style.backgroundPosition = `${x}px ${y}px`;
+
             tile.addEventListener("click", () => moveTile(index));
         }
 
